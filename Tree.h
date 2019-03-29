@@ -1,10 +1,10 @@
 #pragma once
 
 #include <fstream>
-#include "Flower.h"
+#include "Plant.h"
 
 
-class Tree : public Flower
+class Tree : public Plant
 {
 public:
 

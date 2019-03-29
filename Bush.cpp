@@ -5,7 +5,7 @@ void Bush::Out(std::ofstream &outfile)
 	
 	outfile << "Ёто кустарник, ";
 
-	if (-1<month && month<12)
+	if (-1<month && month<watIsMonth.size())
 	{
 		outfile << "мес€ц цветени€ - " << watIsMonth[month - 1];
 		

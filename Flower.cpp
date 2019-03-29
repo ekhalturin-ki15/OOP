@@ -1,68 +1,30 @@
-#pragma once
 
 #include "Flower.h"
-#include "Tree.h"
-#include "Bush.h"
 
-void Flower::InAll(std::ifstream & infile, RingList<Flower*>& container)
+
+void Flower::Out(std::ofstream &outfile)
 {
-	int type;
 
-	while (true)
+	outfile << "Это цветок, ";
+
+	if (-1<type && type<watIsType.size())
 	{
-		type = 0;
-		infile >> type;
-		if (!type) break;
-		container.PushBack(GetFlower(infile, type));
+		outfile << "тип цветка - " << watIsType[type - 1];
+
 	}
+	else
+	{
+		outfile << "тип считался некорректно";
+	}
+
+	outfile << ", Его название: " << name << "\n";
+
 }
 
 
-void Flower::OutAll(std::ofstream & outfile, RingList<Flower*> container)
+void Flower::In(std::ifstream &infile)
 {
-	ElementRL<Flower*> *it = container.begin();
-	for (int i = 0; i < container.WatAmount(); i++)
-	{
-		it->data->Out(outfile);
-		it = it->next;
-	}
-	
+	std::string s;
+	infile >> this->type >> this->name;
 
-}
-
-void Flower::Clear(RingList<Flower*>& container)
-{
-	ElementRL<Flower*> *it = container.begin();
-	ElementRL<Flower*> *nextit;
-	if (it != 0) nextit = it->next;
-	for (int i = 0; i < container.WatAmount(); i++)
-	{
-		delete it;
-		it = nextit;
-		nextit = nextit->next;
-	}
-	container.Clear();
-}
-
-
-#define TREE 1
-#define BUSH 2
-
-Flower * Flower::GetFlower(std::ifstream & infile, int type)
-{
-	Flower *object;
-
-	if (type == TREE)
-	{
-		object = new Tree;
-	}
-
-	if (type == BUSH)
-	{
-		object = new Bush;
-	}
-
-	object->In(infile);
-
-	return object;
 }

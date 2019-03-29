@@ -1,29 +1,19 @@
 #pragma once
 
-#include <string>
-#include <vector>
 #include <fstream>
-#include "RingList.h"
+#include "Plant.h"
 
-//Родительский класс наследования
+const std::vector<std::string> watIsType = { "домашние", "садовые", "дикие", "редкие", "горные" };
 
-class Flower
+class Flower : public Plant
 {
 public:
 
-	virtual void In(std::ifstream &infile) =0;
-	virtual void Out(std::ofstream &outfile) =0;
+	void In(std::ifstream &infile);
+	void Out(std::ofstream &outfile);
 
-	static void InAll(std::ifstream &infile, RingList<Flower*>  &container);
 
-	static Flower* GetFlower(std::ifstream &infile, int type);
-
-	static void OutAll(std::ofstream &outfile, RingList<Flower*>  container);
-
-	static void Clear(RingList<Flower*>  &container);
-
-protected:
-	std::string name;
+private:
+	int type;
 };
-
 

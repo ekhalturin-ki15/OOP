@@ -1,9 +1,10 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "Flower.h"
+#include "Plant.h"
 #include "Tree.h"
 #include "Bush.h"
+#include "Flower.h"
 
 const int StandartInpAtr = 3;
 
@@ -29,17 +30,17 @@ int main(int amount, char* param[])
 
 	std::cout << "Старт" << std::endl;
 
-	RingList<Flower*> container;
+	RingList<Plant*> container;
 	
-	Flower::InAll(infile, container);
+	Plant::InAll(infile, container);
 
 	std::cout << "Данные считаны с файла" << std::endl;
 
-	Flower::OutAll(outfile, container);
+	Plant::OutAll(outfile, container);
 
 	std::cout << "Данные выведенны в файл" << std::endl<<"количество объектов: "<< container.WatAmount()<< std::endl;
 
-	Flower::Clear(container);
+	Plant::Clear(container);
 
 	std::cout << "Контейнер очищен" << std::endl << "количество объектов: " << container.WatAmount() << std::endl;
 

@@ -30,6 +30,9 @@
     <ClCompile Include="Flower.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
+    <ClCompile Include="Plant.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="in.txt">
@@ -47,6 +50,9 @@
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="Bush.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="Plant.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>
