@@ -2,6 +2,8 @@
 
 void Tree::Out(std::ofstream &outfile)
 {
+	outfile << " оличество согласных =" << AmountConsonant() << " ; ";
+
 	outfile << "Ёто дерево, ";
 
 	outfile << "ему " << year<< " лет, ";

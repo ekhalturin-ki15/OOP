@@ -24,6 +24,8 @@ public:
 
 protected:
 	std::string name;
+
+	int AmountConsonant();
 };
 
 

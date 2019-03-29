@@ -2,7 +2,8 @@
 
 void Bush::Out(std::ofstream &outfile)
 {
-	
+	outfile << "Количество согласных ="<< AmountConsonant() << " ; ";
+
 	outfile << "Это кустарник, ";
 
 	if (-1<month && month<12)

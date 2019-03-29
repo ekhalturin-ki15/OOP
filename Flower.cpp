@@ -3,6 +3,21 @@
 #include "Flower.h"
 #include "Tree.h"
 #include "Bush.h"
+#include <set>
+#include <cctype>
+
+int Flower::AmountConsonant()
+{
+	int all = 0;
+	std::set<char> gl = { 'à', 'î', 'è', 'å', '¸', 'ý', 'û', 'ó', 'þ', 'ÿ' };
+	for (auto it : name)
+		if (!gl.count(tolower(it)))
+			all++;
+		
+	return all;
+}
+
+
 
 void Flower::InAll(std::ifstream & infile, RingList<Flower*>& container)
 {
@@ -26,7 +41,7 @@ void Flower::OutAll(std::ofstream & outfile, RingList<Flower*> container)
 		it->data->Out(outfile);
 		it = it->next;
 	}
-	
+
 
 }
 
