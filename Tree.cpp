@@ -6,11 +6,12 @@ void Tree::Out(std::ofstream &outfile)
 
 	outfile << "ему " << year<< " лет, ";
 	
-	outfile << "Его название: " << name << "\n";
+	OutSuffix(outfile);
 }
 
 
 void Tree::In(std::ifstream &infile)
 {
-	infile >> this->year >> this->name;
+
+	infile >> this->year >> this->name >> this->WIG;
 }

@@ -4,6 +4,22 @@
 #include "Tree.h"
 #include "Bush.h"
 
+
+void Flower::OutSuffix(std::ofstream &outfile)
+{
+	outfile << "Его название: " << name << " ;";
+	if ((0 < WIG) && (WIG <= whereItGrows.size()))
+	{
+		outfile << " Растёт в " << whereItGrows[WIG - 1];
+	}
+	else
+	{
+		outfile << " Местность введенна некорректно";
+	}
+	outfile << std::endl;
+}
+
+
 void Flower::InAll(std::ifstream & infile, RingList<Flower*>& container)
 {
 	int type;
@@ -26,7 +42,7 @@ void Flower::OutAll(std::ofstream & outfile, RingList<Flower*> container)
 		it->data->Out(outfile);
 		it = it->next;
 	}
-	
+
 
 }
 

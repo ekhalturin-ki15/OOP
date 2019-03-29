@@ -7,6 +7,8 @@
 
 //Родительский класс наследования
 
+const std::vector<std::string> whereItGrows = { "тундре", "пустыни", "степи", "арктике" };
+
 class Flower
 {
 public:
@@ -24,6 +26,9 @@ public:
 
 protected:
 	std::string name;
+	int WIG;
+	
+	void OutSuffix(std::ofstream &outfile);
 };
 
 
