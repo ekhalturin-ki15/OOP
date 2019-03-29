@@ -1,10 +1,9 @@
 #pragma once
+
 #include <string>
 #include <vector>
+#include <fstream>
 #include "RingList.h"
-
-
-using namespace std;
 
 //Родительский класс наследования
 
@@ -12,11 +11,19 @@ class Flower
 {
 public:
 
-	virtual void In(ifstream &infile)=0;
-	virtual void Out(ofstream &outfile) =0;
+	virtual void In(std::ifstream &infile) =0;
+	virtual void Out(std::ofstream &outfile) =0;
 
-	//void ClientIn(ifstream &infile, RingList<Flower*> &container);
+	static void InAll(std::ifstream &infile, RingList<Flower*>  &container);
+
+	static Flower* GetFlower(std::ifstream &infile, int type);
+
+	static void OutAll(std::ofstream &outfile, RingList<Flower*>  container);
+
+	static void Clear(RingList<Flower*>  &container);
 
 protected:
-	string name;
+	std::string name;
 };
+
+

@@ -8,8 +8,8 @@ class Tree : public Flower
 {
 public:
 
-	void In(ifstream &infile);
-	void Out(ofstream &outfile);
+	void In(std::ifstream &infile);
+	void Out(std::ofstream &outfile);
 
 
 private:

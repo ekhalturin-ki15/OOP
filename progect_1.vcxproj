@@ -143,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bush.cpp" />
+    <ClCompile Include="Flower.cpp" />
     <ClCompile Include="Flower.h" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Tree.cpp" />

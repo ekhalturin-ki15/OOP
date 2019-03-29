@@ -1,22 +1,21 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "RingList.h"
 #include "Flower.h"
 #include "Tree.h"
 #include "Bush.h"
 
-using namespace std;
+const int StandartInpAtr = 3;
 
 int main(int amount, char* param[])
 {
 
 	setlocale(LC_ALL, "Russian");
 
-	ifstream infile;
-	ofstream outfile;
+	std::ifstream infile;
+	std::ofstream outfile;
 
-	if (amount == 3)
+	if (amount == StandartInpAtr)
 	{
 		infile.open(param[1]);
 		outfile.open(param[2]);
@@ -28,24 +27,23 @@ int main(int amount, char* param[])
 	}
 
 
-	cout << "Старт" << endl;
+	std::cout << "Старт" << std::endl;
 
 	RingList<Flower*> container;
+	
+	Flower::InAll(infile, container);
 
-	container.In(infile);
+	std::cout << "Данные считаны с файла" << std::endl;
 
-	cout << "Данные считаны с файла" << endl;
+	Flower::OutAll(outfile, container);
 
-	container.Out(outfile);
+	std::cout << "Данные выведенны в файл" << std::endl<<"количество объектов: "<< container.WatAmount()<< std::endl;
 
-	cout << "Данные выведенны в файл" << endl<<"количество объектов: "<< container.WatAmount()<<endl;
+	Flower::Clear(container);
 
-	container.Clear();
+	std::cout << "Контейнер очищен" << std::endl << "количество объектов: " << container.WatAmount() << std::endl;
 
-	cout << "Контейнер очищен" << endl << "количество объектов: " << container.WatAmount() << endl;
-
-	container.Out(outfile);
-
-	cout << "Финиш" << endl;
+	std::cout << "Финиш" << std::endl;
 	getchar();
 }
+
