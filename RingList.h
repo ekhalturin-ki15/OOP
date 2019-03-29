@@ -1,4 +1,7 @@
 #pragma once
+#include "Flower.h"
+#include "Bush.h"
+#include "Tree.h"
 
 //Элемент контейнера кольцевой двусвязанный список
 template <typename Data>
@@ -31,14 +34,15 @@ public:
 
 	// Положить в конец
 	void PushBack(DataRL flower);
-
-	//void In(ifstream &infile);
 	
 	ElementRL<DataRL>* begin();
 
 	////Удалить
 	void Clear();
 
+	void In(std::ifstream & infile);
+
+	void Out(std::ofstream & outfile);
 
 	int WatAmount();
 
@@ -58,10 +62,51 @@ private:
 //При использовании шаблонов, реализацию нельзя разделять, так как она требуется на этапе компановки
 
 
+
+
+template <typename  DataRL>
+void RingList<DataRL>::Out(std::ofstream & outfile)
+{
+	ElementRL<Flower*> *it = this->begin();
+	for (int i = 0; i < this->amountEl; i++)
+	{
+		it->data->Out(outfile);
+		it = it->next;
+	}
+}
+
+template <typename  DataRL>
+void RingList<DataRL>::In(std::ifstream & infile)
+{
+	int type;
+
+	while (true)
+	{
+		type = 0;
+		infile >> type;
+		if (!type) break;
+		Flower *object;
+		if (type == 1)
+		{
+			object = new Tree;
+		}
+
+		if (type == 2)
+		{
+			object = new Bush;
+		}
+		object->In(infile);
+		this->PushBack(object);
+	}
+}
+
 template <typename  DataRL>
 RingList<DataRL>::RingList()
 {
-	this->Clear();
+	amountEl = 0;
+	start = 0;
+	end = 0;
+	now = 0;
 }
 
 template <typename  DataRL>
@@ -106,7 +151,17 @@ void RingList<DataRL>::PushBack(DataRL flower)
 template <typename  DataRL>
 void RingList<DataRL>::Clear()
 {
-	this->amountEl = 0;
+	ElementRL<Flower*> *it = this->begin();
+	ElementRL<Flower*> *nextit;
+	if (it != 0) nextit = it->next;
+	for (int i = 0; i < this->amountEl; i++)
+	{
+		delete it;
+		it = nextit;
+		nextit = nextit->next;
+	}
+
+	amountEl = 0;
 	start = 0;
 	end = 0;
 	now = 0;

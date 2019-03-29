@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "RingList.h"
 #include "Flower.h"
 #include "Tree.h"
 #include "Bush.h"
@@ -31,15 +32,18 @@ int main(int amount, char* param[])
 
 	RingList<Flower*> container;
 	
-	Flower::InAll(infile, container);
+	container.In(infile);
+	//Flower::InAll(infile, container);
 
 	std::cout << "Данные считаны с файла" << std::endl;
 
-	Flower::OutAll(outfile, container);
+	container.Out(outfile);
+	//Flower::OutAll(outfile, container);
 
 	std::cout << "Данные выведенны в файл" << std::endl<<"количество объектов: "<< container.WatAmount()<< std::endl;
 
-	Flower::Clear(container);
+	container.Clear();
+	//Flower::Clear(container);
 
 	std::cout << "Контейнер очищен" << std::endl << "количество объектов: " << container.WatAmount() << std::endl;
 
