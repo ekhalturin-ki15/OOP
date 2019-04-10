@@ -39,6 +39,8 @@ int main(int amount, char* param[])
 
 	container.Sort();
 
+	container.Sort();
+
 	Flower::OutAll(outfile, container);
 
 	std::cout << "Данные выведенны в файл" << std::endl<<"количество объектов: "<< container.WatAmount()<< std::endl;
