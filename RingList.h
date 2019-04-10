@@ -44,6 +44,8 @@ public:
 
 	void Out(std::ofstream & outfile);
 
+	void OutTree(std::ofstream & outfile);
+
 	int WatAmount();
 
 
@@ -71,6 +73,18 @@ void RingList<DataRL>::Out(std::ofstream & outfile)
 	for (int i = 0; i < this->amountEl; i++)
 	{
 		it->data->Out(outfile);
+		it = it->next;
+	}
+}
+
+template <typename  DataRL>
+void RingList<DataRL>::OutTree(std::ofstream & outfile)
+{
+	ElementRL<Flower*> *it = this->begin();
+	for (int i = 0; i < this->amountEl; i++)
+	{
+		if (it->data->type == Type::tree)
+			it->data->Out(outfile);
 		it = it->next;
 	}
 }

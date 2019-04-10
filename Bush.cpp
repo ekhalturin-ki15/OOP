@@ -26,3 +26,8 @@ void Bush::In(std::ifstream &infile)
 	infile >> this->month >> this->name;
 
 }
+
+Bush::Bush()
+{
+	type = Type::bush;
+}

@@ -14,3 +14,8 @@ void Tree::In(std::ifstream &infile)
 {
 	infile >> this->year >> this->name;
 }
+
+Tree::Tree()
+{
+	type = Type::tree;
+}

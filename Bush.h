@@ -10,6 +10,7 @@ class Bush : public Flower
 {
 public:
 
+	Bush();
 	void In(std::ifstream &infile);
 	void Out(std::ofstream &outfile);
 

@@ -6,6 +6,8 @@
 #include "Tree.h"
 #include "Bush.h"
 
+using namespace std;
+
 const int StandartInpAtr = 3;
 
 int main(int amount, char* param[])
@@ -13,8 +15,8 @@ int main(int amount, char* param[])
 
 	setlocale(LC_ALL, "Russian");
 
-	std::ifstream infile;
-	std::ofstream outfile;
+	ifstream infile;
+	ofstream outfile;
 
 	if (amount == StandartInpAtr)
 	{
@@ -28,26 +30,27 @@ int main(int amount, char* param[])
 	}
 
 
-	std::cout << "Старт" << std::endl;
+	cout << "Старт" << endl;
 
 	RingList<Flower*> container;
 	
 	container.In(infile);
 	//Flower::InAll(infile, container);
 
-	std::cout << "Данные считаны с файла" << std::endl;
+	cout << "Данные считаны с файла" << endl;
+	
+	cout << "количество объектов: " << container.WatAmount() << endl;
+	
+	container.OutTree(outfile);
 
-	container.Out(outfile);
-	//Flower::OutAll(outfile, container);
-
-	std::cout << "Данные выведенны в файл" << std::endl<<"количество объектов: "<< container.WatAmount()<< std::endl;
+	cout << "Выведены только деревья"<< endl;
 
 	container.Clear();
 	//Flower::Clear(container);
 
-	std::cout << "Контейнер очищен" << std::endl << "количество объектов: " << container.WatAmount() << std::endl;
+	cout << "Контейнер очищен" << endl << "количество объектов: " << container.WatAmount() << endl;
 
-	std::cout << "Финиш" << std::endl;
+	cout << "Финиш" << endl;
 	getchar();
 }
 
