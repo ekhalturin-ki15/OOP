@@ -1,22 +1,22 @@
-#include "Bush.h"
+ï»¿#include "Bush.h"
 
 void Bush::Out(std::ofstream &outfile)
 {
-	outfile << "Êîëè÷åñòâî ñîãëàñíûõ ="<< AmountConsonant() << " ; ";
+	outfile << "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÐ¾Ð³Ð»Ð°ÑÐ½Ñ‹Ñ… ="<< AmountConsonant() << " ; ";
 
-	outfile << "Ýòî êóñòàðíèê, ";
+	outfile << "Ð­Ñ‚Ð¾ ÐºÑƒÑÑ‚Ð°Ñ€Ð½Ð¸Ðº, ";
 
 	if (-1<month && month<12)
 	{
-		outfile << "ìåñÿö öâåòåíèÿ - " << watIsMonth[month - 1];
+		outfile << "Ð¼ÐµÑÑÑ† Ñ†Ð²ÐµÑ‚ÐµÐ½Ð¸Ñ - " << watIsMonth[month - 1];
 		
 	}
 	else
 	{
-		outfile << "ìåñÿö öâåòåíèÿ ñ÷èòàëñÿ íåêîððåêòíî";
+		outfile << "Ð¼ÐµÑÑÑ† Ñ†Ð²ÐµÑ‚ÐµÐ½Ð¸Ñ ÑÑ‡Ð¸Ñ‚Ð°Ð»ÑÑ Ð½ÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð¾";
 	}
 
-	outfile << ", Åãî íàçâàíèå: " << name<<"\n";
+	outfile << ", Ð•Ð³Ð¾ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ: " << name<<"\n";
 
 }
 

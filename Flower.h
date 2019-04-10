@@ -1,18 +1,18 @@
-#pragma once
+п»ї#pragma once
 
 #include <string>
 #include <vector>
 #include <fstream>
 #include "RingList.h"
 
-//Родительский класс наследования
+//Р РѕРґРёС‚РµР»СЊСЃРєРёР№ РєР»Р°СЃСЃ РЅР°СЃР»РµРґРѕРІР°РЅРёСЏ
 
 class Flower
 {
 public:
 
-	virtual void In(std::ifstream &infile) =0;
-	virtual void Out(std::ofstream &outfile) =0;
+	virtual void In(std::ifstream &infile) = 0;
+	virtual void Out(std::ofstream &outfile) = 0;
 
 	static void InAll(std::ifstream &infile, RingList<Flower*>  &container);
 
@@ -22,10 +22,12 @@ public:
 
 	static void Clear(RingList<Flower*>  &container);
 
-protected:
-	std::string name;
+	bool cmp(Flower* other);
 
 	int AmountConsonant();
+
+protected:
+	std::string name;
 };
 
 

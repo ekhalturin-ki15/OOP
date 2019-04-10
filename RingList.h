@@ -1,6 +1,7 @@
-#pragma once
+п»ї#pragma once
+using namespace std;
 
-//Элемент контейнера кольцевой двусвязанный список
+//Р­Р»РµРјРµРЅС‚ РєРѕРЅС‚РµР№РЅРµСЂР° РєРѕР»СЊС†РµРІРѕР№ РґРІСѓСЃРІСЏР·Р°РЅРЅС‹Р№ СЃРїРёСЃРѕРє
 template <typename Data>
 class ElementRL
 {
@@ -20,7 +21,7 @@ const ElementRL<Data>& operator++(ElementRL<Data>& el)
 }
 
 
-//Объявление двусвязанного списка
+//РћР±СЉСЏРІР»РµРЅРёРµ РґРІСѓСЃРІСЏР·Р°РЅРЅРѕРіРѕ СЃРїРёСЃРєР°
 template <typename DataRL>
 class RingList
 {
@@ -29,33 +30,78 @@ public:
 	RingList();
 
 
-	// Положить в конец
+	// РџРѕР»РѕР¶РёС‚СЊ РІ РєРѕРЅРµС†
 	void PushBack(DataRL flower);
 
 	//void In(ifstream &infile);
 	
 	ElementRL<DataRL>* begin();
 
-	////Удалить
+	////РЈРґР°Р»РёС‚СЊ
 	void Clear();
 
 
 	int WatAmount();
 
-
+	//РћРїСЏС‚СЊ РЅРµ РїРѕ РєР°РЅРѕРЅР°Рј std, РЅСѓ РґР° Р»Р°РґРЅРѕ, СЃС‚РµСЂРїР»СЋ
+	void Sort();
+	void QSort(vector<ElementRL<DataRL>*>& mass, int l, int r);
 
 private:
 
 	ElementRL<DataRL>* start;
 	ElementRL<DataRL>* end;
-	ElementRL<DataRL>* now; // Для постепенного вывода 
+	ElementRL<DataRL>* now; // Р”Р»СЏ РїРѕСЃС‚РµРїРµРЅРЅРѕРіРѕ РІС‹РІРѕРґР° 
 	int amountEl;
 
 };
 
 
 
-//При использовании шаблонов, реализацию нельзя разделять, так как она требуется на этапе компановки
+//РџСЂРё РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРё С€Р°Р±Р»РѕРЅРѕРІ, СЂРµР°Р»РёР·Р°С†РёСЋ РЅРµР»СЊР·СЏ СЂР°Р·РґРµР»СЏС‚СЊ, С‚Р°Рє РєР°Рє РѕРЅР° С‚СЂРµР±СѓРµС‚СЃСЏ РЅР° СЌС‚Р°РїРµ РєРѕРјРїР°РЅРѕРІРєРё
+
+
+template <typename  DataRL>
+void RingList<DataRL>::Sort()
+{
+	
+	vector<ElementRL<DataRL>*> mass;
+	ElementRL<DataRL> *it = this->begin();
+	for (int i = 0; i < this->WatAmount(); i++)
+	{
+		mass.push_back(it);
+		it = it->next;
+	}
+
+	this->QSort(mass, 0, mass.size() - 1);
+	
+
+}
+
+template <typename  DataRL>
+void RingList<DataRL>::QSort(vector<ElementRL<DataRL>*>& mass, int l, int r)
+{
+	int i = l, j = r;
+	ElementRL<DataRL>* p = mass[(l+r) / 2];
+	while (true)
+	{
+		while (p->data->cmp(mass[i]->data)) i++;
+
+		while (mass[j]->data->cmp(p->data)) j--;
+
+		if (i <= j)
+		{
+			std::swap(mass[i]->data, mass[j]->data);
+
+			i++;
+			j--;
+		}
+		if (i > j) break;
+	}
+
+	if (l < j) this->QSort(mass, l, j); //then QuickSort(l, j);
+	if (i < r) this->QSort(mass, i, r); //then QuickSort(i, r);
+}
 
 
 template <typename  DataRL>
@@ -102,7 +148,7 @@ void RingList<DataRL>::PushBack(DataRL flower)
 
 
 
-//Общий код для конструктора и для очищения контейнера
+//РћР±С‰РёР№ РєРѕРґ РґР»СЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° Рё РґР»СЏ РѕС‡РёС‰РµРЅРёСЏ РєРѕРЅС‚РµР№РЅРµСЂР°
 template <typename  DataRL>
 void RingList<DataRL>::Clear()
 {

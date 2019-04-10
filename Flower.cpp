@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "Flower.h"
 #include "Tree.h"
@@ -6,15 +6,23 @@
 #include <set>
 #include <cctype>
 
+
 int Flower::AmountConsonant()
 {
 	int all = 0;
-	std::set<char> gl = { 'à', 'î', 'è', 'å', '¸', 'ý', 'û', 'ó', 'þ', 'ÿ' };
+	std::set<char> gl = { 'Ð°', 'Ð¾', 'Ð¸', 'Ðµ', 'Ñ‘', 'Ñ', 'Ñ‹', 'Ñƒ', 'ÑŽ', 'Ñ' };
 	for (auto it : name)
 		if (!gl.count(tolower(it)))
 			all++;
-		
+
 	return all;
+}
+
+bool Flower::cmp(Flower* other)
+{
+	int l = this->AmountConsonant();
+	int r = other->AmountConsonant();
+	return (l<r);
 }
 
 
