@@ -1,12 +1,12 @@
-#include "Tree.h"
+ï»¿#include "Tree.h"
 
 void Tree::Out(std::ofstream &outfile)
 {
-	outfile << "Ýòî äåðåâî, ";
+	outfile << "Ð­Ñ‚Ð¾ Ð´ÐµÑ€ÐµÐ²Ð¾, ";
 
-	outfile << "åìó " << year<< " ëåò, ";
+	outfile << "ÐµÐ¼Ñƒ " << year<< " Ð»ÐµÑ‚, ";
 	
-	outfile << "Åãî íàçâàíèå: " << name << "\n";
+	outfile << "Ð•Ð³Ð¾ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ: " << name << "\n";
 }
 
 
