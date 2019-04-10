@@ -4,6 +4,8 @@
 #include "Flower.h"
 #include "Tree.h"
 #include "Bush.h"
+#include <set>
+#include <cctype>
 
 const int StandartInpAtr = 3;
 
@@ -34,6 +36,8 @@ int main(int amount, char* param[])
 	Flower::InAll(infile, container);
 
 	std::cout << "Данные считаны с файла" << std::endl;
+
+	container.Sort();
 
 	Flower::OutAll(outfile, container);
 

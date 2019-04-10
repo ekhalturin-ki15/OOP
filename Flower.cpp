@@ -6,6 +6,7 @@
 #include <set>
 #include <cctype>
 
+
 int Flower::AmountConsonant()
 {
 	int all = 0;
@@ -13,8 +14,15 @@ int Flower::AmountConsonant()
 	for (auto it : name)
 		if (!gl.count(tolower(it)))
 			all++;
-		
+
 	return all;
+}
+
+bool Flower::cmp(Flower* other)
+{
+	int l = this->AmountConsonant();
+	int r = other->AmountConsonant();
+	return (l<r);
 }
 
 
