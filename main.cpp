@@ -9,6 +9,7 @@
 
 const int StandartInpAtr = 3;
 
+
 int main(int amount, char* param[])
 {
 
