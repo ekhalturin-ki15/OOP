@@ -1,9 +1,9 @@
-#pragma once
+п»ї#pragma once
 
 #include <fstream>
 #include "Plant.h"
 
-const std::vector<std::string> watIsType = { "домашние", "садовые", "дикие", "редкие", "горные" };
+const std::vector<std::string> watIsType = { "РґРѕРјР°С€РЅРёРµ", "СЃР°РґРѕРІС‹Рµ", "РґРёРєРёРµ", "СЂРµРґРєРёРµ", "РіРѕСЂРЅС‹Рµ" };
 
 class Flower : public Plant
 {

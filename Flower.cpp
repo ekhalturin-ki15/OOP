@@ -1,23 +1,23 @@
-
+ï»¿
 #include "Flower.h"
 
 
 void Flower::Out(std::ofstream &outfile)
 {
 
-	outfile << "Ýòî öâåòîê, ";
+	outfile << "Ð­Ñ‚Ð¾ Ñ†Ð²ÐµÑ‚Ð¾Ðº, ";
 
 	if (-1<type && type<watIsType.size())
 	{
-		outfile << "òèï öâåòêà - " << watIsType[type - 1];
+		outfile << "Ñ‚Ð¸Ð¿ Ñ†Ð²ÐµÑ‚ÐºÐ° - " << watIsType[type - 1];
 
 	}
 	else
 	{
-		outfile << "òèï ñ÷èòàëñÿ íåêîððåêòíî";
+		outfile << "Ñ‚Ð¸Ð¿ ÑÑ‡Ð¸Ñ‚Ð°Ð»ÑÑ Ð½ÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð¾";
 	}
 
-	outfile << ", Åãî íàçâàíèå: " << name << "\n";
+	outfile << ", Ð•Ð³Ð¾ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ: " << name << "\n";
 
 }
 
