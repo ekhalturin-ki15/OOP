@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "Flower.h"
 #include "Tree.h"
@@ -9,7 +9,7 @@
 int Flower::AmountConsonant()
 {
 	int all = 0;
-	std::set<char> gl = { 'à', 'î', 'è', 'å', '¸', 'ı', 'û', 'ó', 'ş', 'ÿ' };
+	std::set<char> gl = { 'Ğ°', 'Ğ¾', 'Ğ¸', 'Ğµ', 'Ñ‘', 'Ñ', 'Ñ‹', 'Ñƒ', 'Ñ', 'Ñ' };
 	for (auto it : name)
 		if (!gl.count(tolower(it)))
 			all++;

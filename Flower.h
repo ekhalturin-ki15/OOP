@@ -1,11 +1,11 @@
-#pragma once
+п»ї#pragma once
 
 #include <string>
 #include <vector>
 #include <fstream>
 #include "RingList.h"
 
-//Родительский класс наследования
+//Р РѕРґРёС‚РµР»СЊСЃРєРёР№ РєР»Р°СЃСЃ РЅР°СЃР»РµРґРѕРІР°РЅРёСЏ
 
 class Flower
 {
