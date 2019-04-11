@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "Flower.h"
 #include "Tree.h"
@@ -7,14 +7,14 @@
 
 void Flower::OutSuffix(std::ofstream &outfile)
 {
-	outfile << "Åãî íàçâàíèå: " << name << " ;";
+	outfile << "Ð•Ð³Ð¾ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ: " << name << " ;";
 	if ((0 < WIG) && (WIG <= whereItGrows.size()))
 	{
-		outfile << " Ðàñò¸ò â " << whereItGrows[WIG - 1];
+		outfile << " Ð Ð°ÑÑ‚Ñ‘Ñ‚ Ð² " << whereItGrows[WIG - 1];
 	}
 	else
 	{
-		outfile << " Ìåñòíîñòü ââåäåííà íåêîððåêòíî";
+		outfile << " ÐœÐµÑÑ‚Ð½Ð¾ÑÑ‚ÑŒ Ð²Ð²ÐµÐ´ÐµÐ½Ð½Ð° Ð½ÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð¾";
 	}
 	outfile << std::endl;
 }
